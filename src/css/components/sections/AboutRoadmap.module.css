@@ -1,0 +1,78 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionContainer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.roadmapCard {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .roadmapCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.roadmapCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+/* Progressive Amber Accent Bar at the top of each card */
+.accentBar1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #f59e0b;
+  opacity: 0.3; /* Light */
+}
+
+.accentBar2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #f59e0b;
+  opacity: 0.6; /* Mid */
+}
+
+.accentBar3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #f59e0b;
+  opacity: 1; /* Full */
+}
+
+.horizonLabel {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f59e0b;
+  margin-bottom: 1rem;
+}

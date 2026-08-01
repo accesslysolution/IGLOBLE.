@@ -1,0 +1,39 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+.valueCard {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .valueCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.valueCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.3); /* Brand blue border hint */
+  box-shadow: 0 15px 35px -10px rgba(37, 99, 235, 0.1);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--brand-primary);
+  margin-bottom: 1.5rem;
+}

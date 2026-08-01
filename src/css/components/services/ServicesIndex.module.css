@@ -1,0 +1,59 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+.indexGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 64rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .indexGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.indexCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5krem;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .indexCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.indexCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.03);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.indexNumber {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.indexTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}

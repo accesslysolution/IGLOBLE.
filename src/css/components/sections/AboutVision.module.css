@@ -1,0 +1,28 @@
+.sectionContainer {
+  background-color: #020617; /* Full-width dark panel */
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contentWrapper {
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Oversized quote mark */
+.contentWrapper::before {
+  content: '"';
+  position: absolute;
+  top: -80px;
+  left: -40px;
+  font-family: Georgia, serif;
+  font-size: 16rem;
+  line-height: 1;
+  color: #f59e0b;
+  opacity: 0.06;
+  pointer-events: none;
+}

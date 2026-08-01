@@ -1,0 +1,111 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+.blogCard {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blogCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.blogCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.blogCard:hover .image {
+  transform: scale(1.05);
+}
+
+.categoryTag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.contentWrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blogCard:hover .title {
+  color: var(--brand-primary);
+}
+
+.excerpt {
+  color: var(--foreground);
+  opacity: 0.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.dateWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--foreground);
+  opacity: 0.5;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: auto;
+}

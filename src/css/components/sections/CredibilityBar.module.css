@@ -1,0 +1,32 @@
+.credibilitySection {
+  background-color: #f8fafc; /* Titanium White */
+  color: #0f172a;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 20;
+}
+
+/* Technical Monospace Font for Numerals */
+.statNumber {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace, monospace);
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+/* Cool Steel Thin Vertical Dividers for Desktop */
+.statCard {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .statCard:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: #cbd5e1; /* Cool Steel */
+  }
+}

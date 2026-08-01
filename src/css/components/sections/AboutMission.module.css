@@ -1,0 +1,10 @@
+.sectionContainer {
+  background-color: var(--background); /* Light contrasting background */
+  position: relative;
+  z-index: 10;
+}
+
+.contentWrapper {
+  max-width: 48rem;
+  margin: 0 auto;
+}

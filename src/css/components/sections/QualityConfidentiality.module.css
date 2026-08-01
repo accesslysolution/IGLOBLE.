@@ -1,0 +1,59 @@
+.sectionContainer {
+  background-color: #050505; /* Deep, understated black */
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Massive, faint shield watermark for that understated premium feel */
+.watermark {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  font-size: 40rem;
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.pointCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.pointCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(37, 99, 235, 0.3); /* Subtle brand blue border */
+  transform: translateY(-4px);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8; /* Slate gray */
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.pointCard:hover .iconWrapper {
+  background: rgba(37, 99, 235, 0.15);
+  color: #38bdf8; /* Brand accent */
+}

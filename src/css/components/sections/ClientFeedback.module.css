@@ -1,0 +1,106 @@
+.sectionContainer {
+  background-color: #f8fafc; /* Titanium White */
+  color: #0f172a;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionContainer {
+    background-color: #020617; /* Slate 950 for dark mode */
+    color: #f8fafc;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Slider Layout */
+.sliderWrapper {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.sliderContainer {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  cursor: grab;
+}
+
+.sliderContainer::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.testimonialCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  min-width: 320px;
+  flex: 1 0 calc(33.333% - 1.33rem); /* 3 cards on desktop */
+  scroll-snap-align: start;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@media (max-width: 1024px) {
+  .testimonialCard {
+    flex: 1 0 calc(50% - 1rem); /* 2 cards on tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonialCard {
+    flex: 1 0 85%; /* 1 card peaking out on mobile */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .testimonialCard {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+  }
+}
+
+.testimonialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.quoteIcon {
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+  transition: color 0.4s ease;
+}
+
+.testimonialCard:hover .quoteIcon {
+  color: rgba(37, 99, 235, 0.2); /* Brand blue tint on hover */
+}
+
+@media (prefers-color-scheme: dark) {
+  .quoteIcon {
+    color: #334155;
+  }
+}
+
+.industryTag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--brand-primary);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
+}

@@ -1,0 +1,29 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+.imageWrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 3rem;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bulletItem {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}

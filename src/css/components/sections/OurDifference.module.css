@@ -1,0 +1,34 @@
+.sectionContainer {
+  background-color: #0b0d12; /* Dark graphite background */
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+}
+
+.pointRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pointRow:last-child {
+  border-bottom: none;
+}
+
+.numberBadge {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f59e0b; /* Signal Amber */
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .pointRow {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}

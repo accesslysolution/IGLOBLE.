@@ -1,0 +1,91 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionContainer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Horizontal Scroll Container */
+.scrollWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.scrollContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 10vw; /* Gives breathing room at the end of the scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scroll-snap-type: x mandatory;
+  cursor: grab;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Continuous background line for the timeline */
+.trackLine {
+  position: absolute;
+  top: 48px; /* Aligns with the center of the hollow year text */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e2e8f0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .trackLine {
+    background-color: #334155;
+  }
+}
+
+.timelineCard {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Monospace Hollow Year Typography */
+.year {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: transparent;
+  -webkit-text-stroke: 1px #94a3b8;
+  transition: all 0.4s ease;
+  background-color: var(--background); /* Hides the trackline behind the text */
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .year {
+    -webkit-text-stroke: 1px #475569;
+  }
+}
+
+/* Fill with Amber on hover */
+.timelineCard:hover .year {
+  color: #f59e0b; /* Signal Amber */
+  -webkit-text-stroke: 1px #f59e0b;
+  transform: translateY(-5px);
+}

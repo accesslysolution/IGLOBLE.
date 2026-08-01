@@ -1,0 +1,28 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionContainer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.aimBox {
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  padding: 3rem 0;
+}
+
+.thinRule {
+  width: 100px;
+  height: 1px;
+  background-color: #f59e0b; /* Signal Amber rule */
+  margin: 2rem auto;
+  opacity: 0.5;
+}

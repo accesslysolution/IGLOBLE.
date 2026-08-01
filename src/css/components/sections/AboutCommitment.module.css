@@ -1,0 +1,16 @@
+.sectionContainer {
+  background-color: #050505; /* Deep, understated black band */
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.commitmentCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+}

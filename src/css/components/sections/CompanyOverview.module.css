@@ -1,0 +1,36 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+.contentWrapper {
+  max-width: 48rem; /* Comfortable reading width for text-heavy editorial sections */
+  margin: 0 auto;
+}
+
+.imageWrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 3rem 0;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+.serviceListItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  .serviceListItem {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}

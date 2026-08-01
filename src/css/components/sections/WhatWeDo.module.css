@@ -1,0 +1,187 @@
+/* ============================================
+   WHAT WE DO — IGLOBLE TECHNOLOGIES
+   3D cylinder carousel, continuous rotation
+   ============================================ */
+
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+/* --- Viewport ---
+   Clips the cylinder at the page edges and fades it out at the sides.
+   Clipping MUST happen here and not on .stage or .ring: any overflow
+   value other than visible forces transform-style back to flat, which
+   collapses the whole cylinder into a flat row. */
+.carouselViewport {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+/* --- Stage ---
+   Holds the perspective. Lower values = stronger, more dramatic
+   foreshortening. Below about 900px the front card starts to distort. */
+.stage {
+  position: relative;
+  height: 460px;
+  perspective: 1400px;
+  perspective-origin: 50% 45%;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.stage:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 640px) {
+  .stage {
+    height: 400px;
+    perspective: 1000px;
+  }
+}
+
+/* --- Ring ---
+   The element that actually spins. preserve-3d is what lets its
+   children occupy real Z positions instead of being flattened. */
+.ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* --- Card ---
+   Positioned at the centre of the ring, then pushed out to the
+   cylinder wall by the inline transform in the component. */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px; /* half of the desktop card width */
+  margin-top: -170px;
+  height: 340px;
+  padding: 2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.7);
+  user-select: none;
+
+  /* Back faces stay rendered — a card on the far side of the cylinder
+     should read as a dim mirrored panel, not vanish. That's the depth
+     cue that makes the shape legible as a cylinder. */
+  backface-visibility: visible;
+}
+
+@media (max-width: 1023px) {
+  .card {
+    margin-left: -125px;
+    margin-top: -160px;
+    height: 320px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    margin-left: -105px;
+    margin-top: -150px;
+    height: 300px;
+    padding: 1.25rem;
+  }
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.cardBody {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--foreground) 60%, transparent);
+  flex-grow: 1;
+}
+
+/* Number sits at the card's back corner as a depth marker. */
+.cardIndex {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--foreground) 25%, transparent);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--brand-primary);
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.hint {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--foreground) 35%, transparent);
+}
+
+/* --- Static grid card (reduced-motion fallback) --- */
+.staticCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.staticCard:hover {
+  border-color: #f59e0b;
+}
+
+/* --- Section background accent --- */
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}

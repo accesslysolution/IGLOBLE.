@@ -1,0 +1,66 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sectionContainer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.timelineContainer {
+  position: relative;
+  max-width: 48rem;
+  margin: 3rem auto 0 auto;
+  padding-left: 2.5rem;
+}
+
+/* Vertical Left Rail Line */
+.leftRail {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+  width: 2px;
+  background-color: #cbd5e1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .leftRail {
+    background-color: #334155;
+  }
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Amber Node Dot */
+.nodeDot {
+  position: absolute;
+  left: -2.71rem;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #f59e0b; /* Signal Amber */
+  border: 3px solid var(--background);
+  box-shadow: 0 0 0 2px #f59e0b;
+}
+
+.year {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin-bottom: 0.5rem;
+  display: block;
+}

@@ -1,0 +1,46 @@
+.sectionContainer {
+  background-color: var(--background);
+  position: relative;
+  z-index: 10;
+}
+
+.kpiList {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+  max-width: 48rem;
+  margin: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .kpiList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.kpiItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  .kpiItem {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.amberBullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #f59e0b; /* Signal Amber */
+  flex-shrink: 0;
+}

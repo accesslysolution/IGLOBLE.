@@ -1,0 +1,54 @@
+.sectionContainer {
+  background-color: #0b0d12; /* Dark graphite */
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Faint technical grid to match the Hero section */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.reasonCard {
+  position: relative;
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.reasonCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 158, 11, 0.3); /* Subtle amber border on hover */
+  box-shadow: 0 10px 40px -10px rgba(245, 158, 11, 0.1);
+}
+
+.number {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  color: #f59e0b; /* Signal Amber */
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.reasonCard:hover .number {
+  opacity: 1;
+  transform: translateY(-5px);
+}
