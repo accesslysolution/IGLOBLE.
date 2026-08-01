@@ -1,36 +1,300 @@
+/* ============================================
+   WHO WE ARE — IGLOBLE TECHNOLOGIES
+   Light section. Deliberate break from the dark
+   page: the sheet is paper, so the page is paper.
+   All values are hardcoded light — this section
+   does not follow the theme.
+   ============================================ */
+
 .sectionContainer {
-  background-color: var(--background);
   position: relative;
   overflow: hidden;
+  background-color: #f7f8fa;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  color: #0f172a;
 }
 
-/* Subtle background accent */
+@media (min-width: 768px) {
+  .sectionContainer {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Millimetre graph paper: 4mm minor, 20mm major. */
+.paperGrid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 40%, transparent 100%);
+}
+
 .glowBlob {
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(37,99,235,0.03) 0%, rgba(255,255,255,0) 70%);
-  top: -100px;
-  right: -200px;
+  width: 640px;
+  height: 640px;
+  top: -160px;
+  right: -220px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.07) 0%,
+    rgba(245, 158, 11, 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(40px);
 }
 
-.imageWrapper {
+.inner {
   position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  background-color: #f8fafc; /* Very light slate background for the CAD model to sit on */
+  z-index: 10;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-  .imageWrapper {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #0f172a;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+/* --- Copy column --- */
+.copyColumn {
+  display: flex;
+  flex-direction: column;
+  max-width: 36rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrowNum {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #2563eb;
+}
+
+.eyebrowRule {
+  height: 1px;
+  width: 3rem;
+  background: rgba(37, 99, 235, 0.4);
+}
+
+.eyebrowText {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.heading {
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.headingMuted {
+  color: #64748b;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.linkRow {
+  margin-top: 2.5rem;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #2563eb;
+  transition: color 0.25s ease;
+}
+
+.textLink:hover {
+  color: #d97706;
+}
+
+.linkArrow {
+  transition: transform 0.25s ease;
+}
+
+.textLink:hover .linkArrow {
+  transform: translateX(4px);
+}
+
+/* --- Drawing sheet ---
+   perspective on the parent, preserve-3d on the sheet. */
+.sheetPerspective {
+  perspective: 1300px;
+  width: 100%;
+}
+
+.sheet {
+  position: relative;
+  transform-style: preserve-3d;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px; /* drawing sheets have square corners */
+  padding: 1.25rem 1.25rem 0;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 24px 60px -24px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+}
+
+.sheetGlare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0.7;
+  z-index: 3;
+}
+
+.drawing {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Lifted off the paper so the tilt produces real parallax between
+     the ink and the sheet. This is the depth cue. */
+  transform: translateZ(26px);
+}
+
+/* --- SVG text --- */
+.dimText,
+.leaderText,
+.gdtText,
+.gdtSymbol,
+.datumText {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  fill: #2563eb;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.leaderText {
+  text-anchor: start;
+}
+
+.gdtText,
+.gdtSymbol,
+.datumText {
+  fill: #b45309;
+  font-weight: 600;
+}
+
+.gdtSymbol {
+  font-size: 15px;
+}
+
+/* --- Title block ---
+   Real drawing sheets carry their metadata here, so the fields hold
+   real company facts rather than decoration. */
+.titleBlock {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid #cbd5e1;
+  margin: 0 -1.25rem;
+  transform: translateZ(12px);
+}
+
+.tbCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 0.5rem;
+  border-right: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.tbCell:last-child {
+  border-right: none;
+}
+
+.tbLabel {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.tbValue {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .titleBlock {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tbCell:nth-child(3) {
+    border-right: none;
+  }
+}
+
+/* --- Reduced motion: flat sheet, no tilt --- */
+@media (prefers-reduced-motion: reduce) {
+  .sheetPerspective {
+    perspective: none;
+  }
+  .sheet {
+    transform-style: flat;
+  }
+  .drawing,
+  .titleBlock {
+    transform: none;
+  }
+  .sheetGlare {
+    display: none;
   }
 }
